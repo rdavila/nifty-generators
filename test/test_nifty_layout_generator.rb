@@ -39,4 +39,9 @@ class TestNiftyLayoutGenerator < Test::Unit::TestCase
     should_generate_file 'app/views/layouts/foobar.html.haml'
     should_generate_file 'public/stylesheets/sass/foobar.sass'
   end
+
+  context "generator with compass option" do
+    rails_generator :nifty_layout, "foobar", :compass => true
+    should_generate_file 'app/stylesheets/partials/_foobar.sass'
+  end
 end
