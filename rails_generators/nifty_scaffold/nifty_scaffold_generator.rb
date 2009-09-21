@@ -52,13 +52,17 @@ class NiftyScaffoldGenerator < Rails::Generator::Base
         if rspec?
           m.directory "spec/models"
           m.template "tests/#{test_framework}/model.rb", "spec/models/#{singular_name}_spec.rb"
-          m.directory "spec/fixtures"
-          m.template "fixtures.yml", "spec/fixtures/#{plural_name}.yml"
+          if options[:make_fixture]
+            m.directory "spec/fixtures"
+            m.template "fixtures.yml", "spec/fixtures/#{plural_name}.yml"
+          end
         else
           m.directory "test/unit"
           m.template "tests/#{test_framework}/model.rb", "test/unit/#{singular_name}_test.rb"
-          m.directory "test/fixtures"
-          m.template "fixtures.yml", "test/fixtures/#{plural_name}.yml"
+          if options[:make_fixture]
+            m.directory "test/fixtures"
+            m.template "fixtures.yml", "test/fixtures/#{plural_name}.yml"
+          end
         end
       end
       
@@ -206,6 +210,7 @@ protected
     opt.on("--skip-migration", "Don't generate migration file for model.") { |v| options[:skip_migration] = v }
     opt.on("--skip-timestamps", "Don't add timestamps to migration file.") { |v| options[:skip_timestamps] = v }
     opt.on("--skip-controller", "Don't generate controller, helper, or views.") { |v| options[:skip_controller] = v }
+    opt.on("--make-fixture", "Only generate fixture file for model if requested.") { |v| options[:make_fixture] = v }
     opt.on("--invert", "Generate all controller actions except these mentioned.") { |v| options[:invert] = v }
     opt.on("--haml", "Generate HAML views instead of ERB.") { |v| options[:haml] = v }
     opt.on("--testunit", "Use test/unit for test files.") { options[:test_framework] = :testunit }
