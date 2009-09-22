@@ -11,6 +11,7 @@ class NiftyLayoutGenerator < Rails::Generator::Base
         m.directory     'app/stylesheets/partials'
         m.file          "stylesheet.sass",  "app/stylesheets/partials/_#{file_name}.sass"
         m.insert_after  "app/stylesheets/screen.sass", "@import blueprint/modules/scaffolding.sass", "\n@import partials/#{file_name}.sass"
+        m.replace       "app/stylesheets/screen.sass", "// +blueprint", "+blueprint"
       elsif options[:haml]
         m.directory 'public/stylesheets/sass'
         m.file      "stylesheet.sass",  "public/stylesheets/sass/#{file_name}.sass"
