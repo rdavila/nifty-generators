@@ -30,6 +30,7 @@ using the script/generate or script/destroy command.
 * nifty_scaffold: generates a controller and optional model/migration.
 * nifty_config: generates a config YAML file and loader.
 * nifty_authentication: generates user model with sign up and log in.
+* nifty_admin_scaffold: generates an admin controller and optional model/migration.
 
 To view the README for each generator, run it with the +--help+ option.
 
