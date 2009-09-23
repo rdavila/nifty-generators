@@ -1,7 +1,6 @@
   def create
     @<%= singular_name %> = <%= class_name %>.new(params[:<%= singular_name %>])
     if @<%= singular_name %>.save
-      flash[:notice] = "Successfully created <%= name.underscore.humanize.downcase %>."
       redirect_to <%= items_path('url') %>
     else
       render :action => 'new'

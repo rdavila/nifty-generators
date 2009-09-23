@@ -23,7 +23,7 @@
     </tr>
   <%% end %>
 </table>
-
 <%- if action? :new -%>
+<br />
 <p><%%= link_to "Add <%= singular_name.titleize %>", new_admin_<%= singular_name %>_path %></p>
 <%- end -%>

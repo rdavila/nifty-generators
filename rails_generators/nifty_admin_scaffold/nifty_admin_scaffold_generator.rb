@@ -71,8 +71,8 @@ class NiftyAdminScaffoldGenerator < Rails::Generator::Base
         m.directory "app/controllers/admin"
         m.template "controller.rb", "app/controllers/admin/#{plural_name}_controller.rb"
         
-        m.directory "app/helpers"
-        m.template "helper.rb", "app/helpers/#{plural_name}_helper.rb"
+        m.directory "app/helpers/admin"
+        m.template "helper.rb", "app/helpers/admin/#{plural_name}_helper.rb"
         
         m.directory "app/views/admin/#{plural_name}"
         controller_actions.each do |action|
