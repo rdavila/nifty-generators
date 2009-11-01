@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
  
 Gem::Specification.new do |s|
-  s.name = %q{nifty-generators}
-  s.version = "0.3.0"
+  s.name = %q{ghart-nifty-generators}
+  s.version = "0.3.0.1"
  
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ryan Bates", "Greg Hart"]
